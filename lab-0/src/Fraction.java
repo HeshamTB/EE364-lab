@@ -69,6 +69,12 @@ public class Fraction {
 
     }
 
+    /**
+     * add two fractions
+     * @param fraction1
+     * @param fraction2
+     * @return added fractions reduced to min form
+     */
     public static Fraction add(Fraction fraction1, Fraction fraction2){
 
         return null;
@@ -89,12 +95,21 @@ public class Fraction {
 
     }
 
+    /**
+     * string of the fraction in num/den form
+     * @return fraction string
+     */
     public String toString(){
 
         return String.format("%d/%d", this.numerator, this.denominator);
 
     }
 
+    /**
+     * returns a string with the decimal value of the fraction
+     * @param digits precision
+     * @return decimal string
+     */
     public String decimal(int digits){
 
         double decimal = this.numerator / this.denominator;
