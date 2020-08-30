@@ -13,7 +13,8 @@ public class Fraction {
 
         //This might get in recursive loop
         if (isReducible(numerator, denominator)){
-            Fraction f = reduce(new Fraction(numerator, denominator));
+            System.out.printf("reducing %d/%d\n", numerator, denominator);
+            Fraction f = reduce(numerator, denominator);
             this.numerator = f.numerator;
             this.denominator = f.denominator;
         }
@@ -36,17 +37,14 @@ public class Fraction {
 
     /**
      * Reduces a fraction to it's minimum form
-     * @param oldFraction The fraction to be reduced.
-     * @return reduced fraction
+     * @param numerator
+     * @param denominator
+     * @return
      */
-    private Fraction reduce(Fraction oldFraction) {
+    private Fraction reduce(int numerator, int denominator) {
 
-        if (isReducible(oldFraction)){
-            int gcd = GCD(oldFraction.numerator, oldFraction.denominator);
-            return new Fraction(oldFraction.numerator/gcd,
-                    oldFraction.denominator/gcd);
-        }
-        else return oldFraction;
+        int gcd = GCD(numerator, denominator);
+        return new Fraction(numerator/gcd, denominator/gcd);
 
     }
 
@@ -72,7 +70,7 @@ public class Fraction {
      */
     public boolean equal(Fraction fraction){
 
-        Fraction reducedFraction = reduce(fraction);
+        Fraction reducedFraction = reduce(fraction.numerator, fraction.denominator);
         if (this.numerator == reducedFraction.numerator &&
                 this.denominator == reducedFraction.denominator) return true;
         return false;
@@ -173,6 +171,7 @@ public class Fraction {
     private boolean isReducible(Fraction fraction){
 
         int gcd = GCD(fraction.numerator, fraction.denominator);
+        System.out.println("GCD: "+gcd);
         if (gcd == 1) return false;
         else return true;
 

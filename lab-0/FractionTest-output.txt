@@ -1,0 +1,26 @@
+/usr/lib/jvm/java-11-openjdk/bin/java -javaagent:/usr/share/idea/lib/idea_rt.jar=43413:/usr/share/idea/bin -Dfile.encoding=UTF-8 -classpath /home/hesham/Dev/EE364-lab/lab-0/out/production/lab-0 FractionTest
+reducing 2/4
+1/2
+1/2
+0.50
+0.50
+1/2 1/2 are equal? true
+multiple: 1/4
+reducing 4/4
+add: 1/1
+subtract: 0/4
+reducing 2/2
+divide: 1/1
+------------------------------------
+6/7
+1/5
+0.86
+0.20
+6/7 1/5 are equal? false
+multiple: 6/35
+add: 37/35
+subtract: 23/35
+divide: 30/7
+
+Process finished with exit code 0
+
