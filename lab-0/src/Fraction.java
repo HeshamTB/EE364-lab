@@ -11,10 +11,16 @@ public class Fraction {
      */
     public Fraction(int numerator, int denominator){
 
-        this.numerator = numerator;
-        this.denominator = denominator;
-
-        //reduce here
+        //This might get in recursive loop
+        if (isReducible(numerator, denominator)){
+            Fraction f = reduce(new Fraction(numerator, denominator));
+            this.numerator = f.numerator;
+            this.denominator = f.denominator;
+        }
+        else{
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
 
     }
 
@@ -35,8 +41,12 @@ public class Fraction {
      */
     private Fraction reduce(Fraction oldFraction) {
 
-        int gcd = GCD(oldFraction.numerator, oldFraction.denominator);
-        return new Fraction(oldFraction.numerator/gcd, oldFraction.denominator/gcd);
+        if (isReducible(oldFraction)){
+            int gcd = GCD(oldFraction.numerator, oldFraction.denominator);
+            return new Fraction(oldFraction.numerator/gcd,
+                    oldFraction.denominator/gcd);
+        }
+        else return oldFraction;
 
     }
 
@@ -46,7 +56,7 @@ public class Fraction {
      * @param b Second value
      * @return Greatest common divisor as Integer.
      */
-    private int GCD(int a, int b){
+    private static int GCD(int a, int b){
 
         int gcd = 1;
         for (int i = 1; i <= b && i <= a; i++){
@@ -77,8 +87,15 @@ public class Fraction {
      */
     public static Fraction add(Fraction fraction1, Fraction fraction2){
 
-        return null;
+        //new denominator
+        int mDenominatorResult = fraction1.denominator * fraction2.denominator;
+        int mNumerator1 = fraction1.numerator * fraction2.denominator;
+        int mNumerator2 = fraction2.numerator * fraction1.denominator;
+        //new numerator
+        int mNumeratorResult = mNumerator1 + mNumerator2;
 
+        //
+        return new Fraction(mNumeratorResult, mDenominatorResult);
     }
 
     /**
@@ -97,6 +114,7 @@ public class Fraction {
 
     /**
      * string of the fraction in num/den form
+     * overrides global toString()
      * @return fraction string
      */
     public String toString(){
@@ -112,9 +130,36 @@ public class Fraction {
      */
     public String decimal(int digits){
 
-        double decimal = this.numerator / this.denominator;
-        return String.format("%."+digits, decimal);
+        return String.format("%."+digits, (double)this.numerator / this.denominator);
 
     }
+
+    /**
+     * Check if fraction is in simplest terms.
+     * @param fraction Fraction object
+     * @return  boolean
+     */
+    private boolean isReducible(Fraction fraction){
+
+        int gcd = GCD(fraction.numerator, fraction.denominator);
+        if (gcd == 1) return false;
+        else return true;
+
+    }
+
+    /**
+     * Check if fraction is in simplest terms.
+     * @param numerator
+     * @param denominator
+     * @return boolean
+     */
+    private boolean isReducible(int numerator, int denominator){
+
+        int gcd = GCD(numerator, denominator);
+        if (gcd == 1) return false;
+        else return true;
+
+    }
+
 
 }
