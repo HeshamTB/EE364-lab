@@ -1,0 +1,18 @@
+/usr/lib/jvm/java-11-openjdk/bin/java -javaagent:/usr/share/idea/lib/idea_rt.jar=40507:/usr/share/idea/bin -Dfile.encoding=UTF-8 -classpath /home/hesham/Dev/EE364-lab/lab-0/out/production/lab-0 TestMyGame
+Guess any numeric value from 1 to 15 10
+Guess any numeric value from 1 to 15 3
+Guess any numeric value from 1 to 15 4
+Guess any numeric value from 1 to 15 9
+Guess any numeric value from 1 to 15 14
+Guess any numeric value from 1 to 15 15
+Guess any numeric value from 1 to 15 2
+Guess any numeric value from 1 to 15 5
+Guess any numeric value from 1 to 15 
+6
+Guess any numeric value from 1 to 15 6
+Guess any numeric value from 1 to 15 9
+Guess any numeric value from 1 to 15 8
+Guess any numeric value from 1 to 15 7
+You won after 13try/tries
+
+Process finished with exit code 0
