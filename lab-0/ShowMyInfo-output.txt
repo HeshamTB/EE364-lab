@@ -1,0 +1,7 @@
+/usr/lib/jvm/java-11-openjdk/bin/java -javaagent:/usr/share/idea/lib/idea_rt.jar=45631:/usr/share/idea/bin -Dfile.encoding=UTF-8 -classpath /home/hesham/Dev/EE364-lab/lab-0/out/production/lab-0 ShowMyInfo
+Enter your name: Hesham
+Enter your age: 23
+Welcome Hesham, your age is 23
+
+Process finished with exit code 0
+
