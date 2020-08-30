@@ -99,16 +99,47 @@ public class Fraction {
     }
 
     /**
+     * subtract two fractions
+     * @param fraction1
+     * @param fraction2
+     * @return subtracted fractions reduced to min form
+     */
+    public static Fraction subtract(Fraction fraction1, Fraction fraction2){
+
+        //new denominator
+        int mDenominatorResult = fraction1.denominator * fraction2.denominator;
+        int mNumerator1 = fraction1.numerator * fraction2.denominator;
+        int mNumerator2 = fraction2.numerator * fraction1.denominator;
+        //new num
+        int mNumeratorResult = mNumerator1 - mNumerator2;
+
+        return new Fraction(mNumeratorResult, mDenominatorResult);
+    }
+
+    /**
      * Multiply two fractions and reduce
      * @param fraction1
      * @param fraction2
-     * @return
+     * @return fractions
      */
     public static Fraction multiply(Fraction fraction1, Fraction fraction2) {
 
         //The constructor already reduces.
         return new Fraction(fraction1.numerator * fraction2.numerator,
                 fraction1.denominator * fraction2.denominator);
+
+    }
+
+    /**
+     * Divide two fractions and reduce
+     * @param fraction1
+     * @param fraction2
+     * @return fractions
+     */
+    public static Fraction divide(Fraction fraction1, Fraction fraction2){
+
+        return new Fraction(fraction1.numerator * fraction2.denominator,
+                fraction1.denominator * fraction2.numerator);
 
     }
 
