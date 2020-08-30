@@ -60,7 +60,7 @@ public class Fraction {
      * @param fraction The fraction to check
      * @return True if the fractions are equal, otherwise false.
      */
-    public boolean equal (Fraction fraction){
+    public boolean equal(Fraction fraction){
 
         Fraction reducedFraction = reduce(fraction);
         if (this.numerator == reducedFraction.numerator &&
@@ -70,11 +70,36 @@ public class Fraction {
     }
 
     public static Fraction add(Fraction fraction1, Fraction fraction2){
+
         return null;
+
+    }
+
+    /**
+     * Multiply two fractions and reduce
+     * @param fraction1
+     * @param fraction2
+     * @return
+     */
+    public static Fraction multiply(Fraction fraction1, Fraction fraction2) {
+
+        //The constructor already reduces.
+        return new Fraction(fraction1.numerator * fraction2.numerator,
+                fraction1.denominator * fraction2.denominator);
+
     }
 
     public String toString(){
+
         return String.format("%d/%d", this.numerator, this.denominator);
+
+    }
+
+    public String decimal(int digits){
+
+        double decimal = this.numerator / this.denominator;
+        return String.format("%."+digits, decimal);
+
     }
 
 }
