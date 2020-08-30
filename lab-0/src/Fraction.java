@@ -161,7 +161,7 @@ public class Fraction {
      */
     public String decimal(int digits){
 
-        return String.format("%."+digits, (double)this.numerator / this.denominator);
+        return String.format("%."+digits+"f", (double)this.numerator / this.denominator);
 
     }
 
