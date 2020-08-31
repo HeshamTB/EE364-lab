@@ -32,6 +32,6 @@ public class _Point {
 
     public void setY(int y){ this.y = y; }
 
-    public String toString(){ return String.format("Position (%d, %d)", this.x, this.y); }
+    public String toString(){ return String.format("Current (x,y) location (%d,%d)\n", this.x, this.y); }
 
 }
