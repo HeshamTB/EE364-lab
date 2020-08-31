@@ -28,7 +28,7 @@ public class Cylinder extends Circle {
     public double getHeight(){ return this.height; }
 
     public String toString(){
-        String format = "%sCylinder's height = %f ,Surface area = %f , Volume = %f";
+        String format = "%sCylinder's height = %.2f ,Surface area = %.2f , Volume = %.2f";
         return String.format(format, super.toString(), getHeight(), getSurfaceArea(), getVolume());
     }
 

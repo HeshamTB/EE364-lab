@@ -28,7 +28,7 @@ public class _Rectangle extends _Point {
     public double getCircumfrence(){ return 2*(this.width+this.height); }
 
     public String toString() {
-        return String.format("%s, Height %f, Width %f, Area %f, Circumfrence %f",
+        return String.format("%sRectangle's Height %.2f, Width %.2f, Area %.2f, Circumfrence %.2f",
                 super.toString(), getHeight(), getWidth(), getArea(), getCircumfrence());
     }
 }

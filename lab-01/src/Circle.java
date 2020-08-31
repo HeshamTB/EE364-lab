@@ -21,7 +21,7 @@ public class Circle extends _Point {
     public double getCircumfrence() { return 2*Math.PI*this.radius; }
 
     public String toString() {
-        String format = "%sCircle's radius = %f ,area = %f, circumfrence = %f\n";
+        String format = "%sCircle's radius = %.2f ,area = %.2f, circumfrence = %.2f\n";
         return String.format(format, super.toString(), getRadius(), getArea(), getCircumfrence());
     }
 
