@@ -1,2 +1,6 @@
 *.class
 *.zip
+*.xz
+
+#build output
+out/
