@@ -1,7 +1,7 @@
 import java.io.PrintStream;
 
 public class Program {
-    public static void main(String args[]){
+    public static void main(String[] args){
 
         PrintStream out = System.out;
 
