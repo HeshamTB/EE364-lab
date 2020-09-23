@@ -9,9 +9,9 @@ public class _Rectangle extends _Point {
      * @param height height of rectangle
      */
     public _Rectangle(double width, double height){
+        super();// This might be useless.
         this.height = height;
         this.width = width;
-        this.setLocation(0, 0);
     }
 
     /**
@@ -22,9 +22,9 @@ public class _Rectangle extends _Point {
      * @param h height of rectangle
      */
     public _Rectangle(int x, int y, double w, double h){
+        super(x, y);
         this.width = w;
         this.height = h;
-        this.setLocation(x, y);
     }
 
     /**

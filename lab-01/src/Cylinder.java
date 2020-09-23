@@ -8,7 +8,7 @@ public class Cylinder extends Circle {
      * @param h height
      */
     public Cylinder(double r, double h){
-        super(r);//Recommended by IDE. Invokes Circle(double radius).
+        super(r);
         // Circle with location 0, 0 and radius r.
         this.height = h;
         //now a cylinder with radius r and height h at 0,0

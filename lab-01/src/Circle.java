@@ -7,8 +7,8 @@ public class Circle extends _Point {
      * @param radius
      */
     public Circle(double radius){
-        this.radius = radius;
-        this.setLocation(0, 0);
+        super();
+        setRadius(radius);
     }
 
     /**
@@ -18,15 +18,20 @@ public class Circle extends _Point {
      * @param y
      */
     public Circle(double radius, int x, int y){
-        this.radius = radius;
-        this.setLocation(x, y);
+        super(x, y);
+        setRadius(radius);
     }
 
     /**
      * set radius
      * @param radius
      */
-    public void setRadius(double radius) { this.radius = radius; }
+    public void setRadius(double radius) {
+        //default to unit circle if bad radius is given.
+        //Maybe take abs(r) to negate negative radius.
+        if (radius < 0) { this.radius = 1; }
+        else this.radius = radius;
+    }
 
     /**
      * get radius
