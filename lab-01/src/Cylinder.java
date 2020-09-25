@@ -10,7 +10,7 @@ public class Cylinder extends Circle {
     public Cylinder(double r, double h){
         super(r);
         // Circle with location 0, 0 and radius r.
-        this.height = h;
+        setHeight(h);
         //now a cylinder with radius r and height h at 0,0
     }
 
@@ -23,7 +23,7 @@ public class Cylinder extends Circle {
      */
     public Cylinder(int x, int y,double r, double h){
         super(r, x, y); //a circle with radius r at x,y
-        this.height = h;
+        setHeight(h);
         //cylinder with radius r and height h at x,y
     }
 

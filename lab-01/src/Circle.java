@@ -7,8 +7,7 @@ public class Circle extends _Point {
      * @param radius
      */
     public Circle(double radius){
-        super();
-        setRadius(radius);
+        this(radius, 0, 0);
     }
 
     /**
