@@ -1,15 +1,17 @@
-public class _Rectangle {
+public class _Rectangle extends _Shape {
 
     private double width;
     private double height;
 
     public _Rectangle(double w){
-        this.width = w;
+        //Since only width or height is given, assume square.
+        setWidth(w);
+        setHeight(w);
     }
 
     public _Rectangle(double w, double h){
-        this.width = w;
-        this.height = h;
+        setWidth(w);
+        setHeight(h);
     }
 
     public double getArea(){
@@ -17,11 +19,13 @@ public class _Rectangle {
     }
 
     public void setWidth(double w){
-        this.width = w;
+        if (w != 0) this.width = w;
+        else this.width = 1;
     }
 
     public void setHeight(double h){
-        this.height = h;
+        if (h != 0) this.height = h;
+        else this.height = 1;
     }
 
     public double getWidth(){ return this.width; }
