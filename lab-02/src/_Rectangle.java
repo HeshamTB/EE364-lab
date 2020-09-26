@@ -4,12 +4,12 @@ public class _Rectangle extends _Shape {
     private double height;
 
     public _Rectangle(double w){
+        this(w, w);
         //Since only width or height is given, assume square.
-        setWidth(w);
-        setHeight(w);
     }
 
     public _Rectangle(double w, double h){
+        super("Rectangle");
         setWidth(w);
         setHeight(h);
     }
@@ -32,6 +32,6 @@ public class _Rectangle extends _Shape {
     public double getHeight(){ return this.height; }
 
     public String toString() {
-        return " ";//TODO: _Rectangle toString output format
+        return String.format("%s%.2f\n", super.toString(), this.getArea());
     }
 }
