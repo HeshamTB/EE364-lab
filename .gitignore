@@ -1,7 +1,11 @@
 *.class
 *.zip
 *.xz
+*.pdf
 
 #build output
 out/
 META-INF/
+
+#testing project
+testing/
