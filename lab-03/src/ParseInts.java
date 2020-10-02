@@ -9,14 +9,18 @@ public class ParseInts {
         String line;
         Scanner scanLine = new Scanner(in.nextLine());
         int sum = 0;
-        try{
-            while (scanLine.hasNext()){
-                int val = Integer.parseInt(scanLine.next());
-                sum += val;
+        String inputBuffer = "";
+        while (scanLine.hasNext()){
+            try{
+                inputBuffer = scanLine.next();
+                if (inputBuffer != null){
+                    int val = Integer.parseInt(inputBuffer);
+                    sum += val;
+                }
             }
-        }
-        catch (NumberFormatException e){
-            //pass
+            catch (NumberFormatException e){
+                out.printf("Skipping %s. Not an Integer\n", inputBuffer);
+            }
         }
 
         out.println("The sum of the integers on this line is " + sum);
