@@ -10,8 +10,13 @@ public class ParseInts {
         Scanner scanLine = new Scanner(in.nextLine());
         int sum = 0;
         while (scanLine.hasNext()){
-            int val = Integer.parseInt(scanLine.next());
-            sum += val;
+            try {
+                int val = Integer.parseInt(scanLine.next());
+                sum += val;
+            }
+            catch (NumberFormatException e){
+                //pass
+            }
         }
         out.println("The sum of the integers on this line is " + sum);
     }
