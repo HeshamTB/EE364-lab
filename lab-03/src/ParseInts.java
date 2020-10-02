@@ -9,15 +9,16 @@ public class ParseInts {
         String line;
         Scanner scanLine = new Scanner(in.nextLine());
         int sum = 0;
-        while (scanLine.hasNext()){
-            try {
+        try{
+            while (scanLine.hasNext()){
                 int val = Integer.parseInt(scanLine.next());
                 sum += val;
             }
-            catch (NumberFormatException e){
-                //pass
-            }
         }
+        catch (NumberFormatException e){
+            //pass
+        }
+
         out.println("The sum of the integers on this line is " + sum);
     }
 }
