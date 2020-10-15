@@ -18,8 +18,8 @@ public class Factorials{
         }
     }
 
-    private static int factorial(int value){
-        
+    private static int factorial(int value) throws IllegalArgumentException {
+        if (value < 0) throw new IllegalArgumentException("Can not calculate a negative factorial");
         for (int i = value - 1; i > 0; i--){
             value *= i;
         }
