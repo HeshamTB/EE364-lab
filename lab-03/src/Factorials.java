@@ -11,7 +11,12 @@ public class Factorials{
 
             System.out.print("Enter an integer: ");
             int val = scan.nextInt();
-            System.out.println("Factorial(" + val + ") = " + factorial(val));
+            try {
+                System.out.println("Factorial(" + val + ") = " + factorial(val));
+            }
+            catch (IllegalArgumentException ex){
+                System.out.println(ex.getMessage() + String.format(" (%d)", val));
+            }
 
             System.out.print("Another factorial? (y/n) ");
             keepGoing = scan.next();
