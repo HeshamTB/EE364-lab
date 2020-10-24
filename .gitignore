@@ -12,3 +12,6 @@ testing/
 
 #jar files (byte code)
 *.jar
+
+#graphics
+*.png
