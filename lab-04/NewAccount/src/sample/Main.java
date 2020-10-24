@@ -2,18 +2,17 @@ package sample;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.geometry.HPos;
-import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.VPos;
+import javafx.geometry.*;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /*
@@ -38,42 +37,29 @@ public class Main extends Application {
         root.setColumnHalignment(HPos.CENTER);
         root.setRowValignment(VPos.CENTER);
         root.setHgap(10);
-        root.setVgap(15);
+        root.setVgap(5);
         root.setMaxWidth(270);
         root.setPrefWrapLength(250);
 
-        //Labels
-        Label lFirstName = new Label("First name: ");
-        Label lLasttName = new Label("Last name: ");
-        Label lPassword = new Label("Enter password: ");
-        Label lRePass = new Label("Reenter password: ");
-        Label lCity = new Label("City: ");
-        Label lCountry = new Label("Choose a counrty: ");
+        //Panes (HBoxes)
+        HBox boxFirstName = makeLebelWithText("First name: ");
+        HBox boxLasttName = makeLebelWithText("Last name: ");
+        HBox boxPassword = makeLebelWithText("Enter password");
+        HBox boxRePass = makeLebelWithText("Reenter password: ");
+        HBox boxCity = makeLebelWithText("City");
+        HBox boxCountry = makeComboBoxWithLabel("Choose a country: ");
+        HBox boxButtons = makeButtons();
 
-        //Set mnemonic
-        lFirstName.setMnemonicParsing(true);// makes tab work or Alt+n
-        lLasttName.setMnemonicParsing(true);
-        lPassword.setMnemonicParsing(true);
-        lRePass.setMnemonicParsing(true);
-        lCity.setMnemonicParsing(true);
+        root.getChildren().addAll(boxFirstName,
+                boxLasttName,
+                boxPassword,
+                boxRePass,
+                boxCountry,
+                boxCity,
+                boxButtons);
 
-        //Text fields
-        TextField fFirstName = new TextField();
-        TextField fLastName = new TextField();
-        TextField fPassword = new TextField();
-        TextField fRepass = new TextField();
-        TextField fCity = new TextField();
-
-        ComboBox<String> comCountry = new ComboBox<>(FXCollections.observableArrayList(Countries));
-
-        root.getChildren().addAll(lFirstName, fFirstName,
-                lLasttName, fLastName,
-                lPassword, fPassword,
-                lRePass, fRepass,
-                lCountry, comCountry,
-                lCity, fCity);
         primaryStage.setTitle("Create new account");
-        primaryStage.setScene(new Scene(root, 285, 300));
+        primaryStage.setScene(new Scene(root, 285, 350));
         primaryStage.show();
     }
 
@@ -82,7 +68,7 @@ public class Main extends Application {
         launch(args);
     }
 
-    private Node makeLebelWithText(String labelText){
+    private HBox makeLebelWithText(String labelText){
         HBox node = new HBox();
         node.setPadding(new Insets(10));
         node.setSpacing(10);
@@ -92,12 +78,25 @@ public class Main extends Application {
         return node;
     }
 
-    private Node makeComboBoxWithLabel(String labelText) {
+    private HBox makeComboBoxWithLabel(String labelText) {
         HBox node = new HBox();
         node.setPadding(new Insets(10));
         node.setSpacing(10);
         Label label = new Label(labelText);
         node.getChildren().addAll(label, new ComboBox<>(FXCollections.observableArrayList(Countries)));
+        return node;
+    }
+
+    private HBox makeButtons(){
+        HBox node = new HBox();
+        node.setPadding(new Insets(10));
+        node.setSpacing(10);
+        node.setAlignment(Pos.CENTER);
+        Button bClear = new Button("Clear");
+        Button bRegister = new Button("Register");
+        bClear.setPrefSize(100, 20);
+        bRegister.setPrefSize(100, 20);
+        node.getChildren().addAll(bClear,bRegister);
         return node;
     }
 
