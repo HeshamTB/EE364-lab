@@ -46,7 +46,7 @@ public class Main extends Application {
         HBox boxLasttName = makeLebelWithText("Last name: ");
         HBox boxPassword = makeLebelWithText("Enter password");
         HBox boxRePass = makeLebelWithText("Reenter password: ");
-        HBox boxCity = makeLebelWithText("City");
+        HBox boxCity = makeLebelWithText("City: ");
         HBox boxCountry = makeComboBoxWithLabel("Choose a country: ");
         HBox boxButtons = makeButtons();
 
@@ -69,9 +69,7 @@ public class Main extends Application {
     }
 
     private HBox makeLebelWithText(String labelText){
-        HBox node = new HBox();
-        node.setPadding(new Insets(10));
-        node.setSpacing(10);
+        HBox node = getStdHBox();
         Label label = new Label(labelText);
         TextField textField = new TextField();
         node.getChildren().addAll(label, textField);
@@ -79,24 +77,27 @@ public class Main extends Application {
     }
 
     private HBox makeComboBoxWithLabel(String labelText) {
-        HBox node = new HBox();
-        node.setPadding(new Insets(10));
-        node.setSpacing(10);
+        HBox node = getStdHBox();
         Label label = new Label(labelText);
         node.getChildren().addAll(label, new ComboBox<>(FXCollections.observableArrayList(Countries)));
         return node;
     }
 
     private HBox makeButtons(){
-        HBox node = new HBox();
-        node.setPadding(new Insets(10));
-        node.setSpacing(10);
-        node.setAlignment(Pos.CENTER);
+        HBox node = getStdHBox();
         Button bClear = new Button("Clear");
         Button bRegister = new Button("Register");
         bClear.setPrefSize(100, 20);
         bRegister.setPrefSize(100, 20);
         node.getChildren().addAll(bClear,bRegister);
+        return node;
+    }
+
+    private HBox getStdHBox() {
+        HBox node = new HBox();
+        node.setPadding(new Insets(10));
+        node.setSpacing(10);
+        node.setAlignment(Pos.CENTER);
         return node;
     }
 
