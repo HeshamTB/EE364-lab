@@ -9,3 +9,6 @@ META-INF/
 
 #testing project
 testing/
+
+#jar files (byte code)
+*.jar
