@@ -21,7 +21,6 @@ public class CalculatorPane extends VBox implements EventHandler<MouseEvent> {
 
 
     public CalculatorPane(){
-        constructButtons();
         setSpacing(15);
         setPadding(new Insets(10));
         ioField = new TextField();
@@ -29,14 +28,14 @@ public class CalculatorPane extends VBox implements EventHandler<MouseEvent> {
         ioField.setEditable(false);
         ioField.setText("");
         ioField.setPrefHeight(15);
-
-
+        constructButtons();
     }
 
 
     private void calculateAndDisplay() {
         if (subtracting) {
             display(String.valueOf(firstOperand - Integer.parseInt(ioField.getText())));
+            subtracting = false;
         }
         else display(String.valueOf(firstOperand+Integer.parseInt(ioField.getText())));
     }
@@ -61,6 +60,7 @@ public class CalculatorPane extends VBox implements EventHandler<MouseEvent> {
         ioField.setText(result);
     }
 
+    //Handle all number buttons
     @Override
     public void handle(MouseEvent mouseEvent) {
         int pressedBtn = 0;
@@ -75,6 +75,7 @@ public class CalculatorPane extends VBox implements EventHandler<MouseEvent> {
             ioField.setText(ioField.getText()+ pressedBtn);
         }
         else {
+            //TODO: removes prev digit. (cant place 2 or more digits for second operand.
             ioField.setText(String.valueOf(pressedBtn));
         }
     }
@@ -100,6 +101,7 @@ public class CalculatorPane extends VBox implements EventHandler<MouseEvent> {
             btn.setOnMouseClicked(this);
         }
 
+        //set Event handlers for op buttons
         btnList[Buttons.CLEAR].setOnMouseClicked(e-> clear());
         btnList[Buttons.PLUS].setOnMouseClicked(e -> add());
         btnList[Buttons.MINUS].setOnMouseClicked(e -> subtract());
