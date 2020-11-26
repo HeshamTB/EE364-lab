@@ -12,6 +12,10 @@ import javafx.stage.Stage;
 
 public class GamePane extends GridPane implements EventHandler<MouseEvent> {
 
+    /*
+    Another solution to getting the state of Button(Box) is to extend Button and
+    add member (Player playedBy)
+     */
     private Button btnExit;
     private Button btnRestart;
     private Button[][] btnGame;
@@ -44,10 +48,11 @@ public class GamePane extends GridPane implements EventHandler<MouseEvent> {
 
     public void restart() {
         System.out.println("Starting new game");
-        for (int i = 0; i < btnGame.length; i++) {
+        //Row
+        for (Button[] buttons : btnGame) {
             //Element
-            for (int j = 0; j < btnGame[i].length; j++) {
-                btnGame[i][j].setText("-");
+            for (Button button : buttons) {
+                button.setText("-");
             }
         }
         done = false;
@@ -72,7 +77,7 @@ public class GamePane extends GridPane implements EventHandler<MouseEvent> {
         }
     }
 
-    private void checkWin() throws Exception {
+    private void checkWin() {
         //check horizontal
         for (int i = 0; i < 3; i++){
             int xCount = 0;
@@ -133,7 +138,7 @@ public class GamePane extends GridPane implements EventHandler<MouseEvent> {
         }
     }
 
-    private void announceWin(Player player) throws Exception {
+    private void announceWin(Player player) {
         done = true;
         WinDialog w = new WinDialog(player);
         w.start(new Stage());
@@ -189,7 +194,7 @@ public class GamePane extends GridPane implements EventHandler<MouseEvent> {
         }
 
         @Override
-        public void start(Stage stage) throws Exception {
+        public void start(Stage stage) {
             VBox root = new VBox();
             root.setAlignment(Pos.CENTER);
             root.setPadding(new Insets(15,15,15,15));
